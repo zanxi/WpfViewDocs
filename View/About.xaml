@@ -1,0 +1,63 @@
+﻿<Window x:Class="ViewAppDocs.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViewAppDocs"
+        mc:Ignorable="d"
+        Title="About" Width="752" SizeToContent="Height" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" ResizeMode="NoResize">
+    <FlowDocumentScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <FlowDocument>
+            <FlowDocument.Resources>
+                <Style TargetType="Section">
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </FlowDocument.Resources>
+            <Section>
+                <Paragraph>
+                    <Bold>DOCX Reader</Bold> application is created by
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/">GemBox Software</Hyperlink> to demonstrate reading of DOCX files and conversion to WPF's FlowDocument.
+                    <LineBreak/>
+                    It is not a complete solution and is intended to be used for simple scenarios (without tables, lists, pictures, headers/footers, styles, etc.).
+                </Paragraph>
+                <Paragraph>
+                    For a more complete solution, check out
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/document/overview">GemBox.Document</Hyperlink> component which enables you to easily
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/SampleExplorer/Document/WPF/ExporttoXpsDocument_DocumentViewerControl">view a more complex DOCX files</Hyperlink> (with tables, images, headers/footers etc.) from your .NET applications.
+                </Paragraph>
+            </Section>
+            <Section>
+                <Paragraph>
+                    <Floater Width="273">
+                        <BlockUIContainer>
+                            <Image Source="GBD.png"/>
+                        </BlockUIContainer>
+                    </Floater>
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/document/overview">GemBox.Document</Hyperlink> is a .NET component which enables developers to read, write, convert and print document files (DOCX, DOC, PDF, HTML, XPS, TXT) from .NET applications in a simple and efficient way.
+                </Paragraph>
+                <Paragraph>
+                    GemBox.Document requires only .NET Framework and is many times faster than Microsoft
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/document/competition">Word automation</Hyperlink> .
+                </Paragraph>
+                <Paragraph>
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/document/free-version">GemBox.Document Free</Hyperlink> is free of charge while
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/document/pricelist">GemBox.Document Professional</Hyperlink> is a commercial version licensed per developer. Server deployment is royalty free.
+                </Paragraph>
+            </Section>
+            <Section>
+                <Paragraph>
+                    The best way to explore
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/document/features">supported features</Hyperlink> is by using Sample Explorer:
+                </Paragraph>
+                <Paragraph>
+                    <Hyperlink NavigateUri="http://www.gemboxsoftware.com/SampleExplorer/document" TextDecorations="None" BaselineAlignment="Center" FontWeight="Bold">
+                        <InlineUIContainer>
+                            <Image Source="play.png" Width="48"/>
+                        </InlineUIContainer>
+                        GemBox.Document Sample Explorer
+                    </Hyperlink>
+                </Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentScrollViewer>
+</Window>
