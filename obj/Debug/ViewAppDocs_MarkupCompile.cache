@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-d:\_2022___\Src_3__\ViewAppDocs\obj\Debug\
+d:\_2022___\Src_3__\WpfViewDocs\obj\Debug\
 ViewAppDocs
 none
 false
 DEBUG;TRACE
-d:\_2022___\Src_3__\ViewAppDocs\App.xaml
-2-1447244724
+d:\_2022___\Src_3__\WpfViewDocs\App.xaml
+31374805404
 
-10-599573676
+17-16055269
 13-1505183044
-View\MainWindow.xaml;View\About.xaml;
+FoldersView.xaml;View\MainWindow.xaml;View\About.xaml;
 
-False
+True
 

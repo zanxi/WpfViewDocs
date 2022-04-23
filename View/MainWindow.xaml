@@ -3,41 +3,50 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ViewAppDocs"
+        xmlns:local="clr-namespace:ViewAppDocs"        
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Text="Filter: " Margin="5" />
-            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5" />
-        </StackPanel>
-        <!--<DataGrid Grid.Row="1" Margin="5" ItemsSource="{Binding Items}" AutoGenerateColumns="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <local:FoldersView x:Name="folderTree" SelectionChanged="folderTree_SelectionChanged"/>
+        </Grid>            
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock Text="Filter: " Margin="5" />
+                <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5" />
+            </StackPanel>
+            <!--<DataGrid Grid.Row="1" Margin="5" ItemsSource="{Binding Items}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Family" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding FirstName}"/>
             </DataGrid.Columns>
         </DataGrid>-->
-        <ListView ItemsSource="{Binding Items}" Margin="5" Grid.Row="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding LastName}" Margin="5" />
-                        <TextBlock Text="{Binding FirstName}" Margin="5" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        
-        <Menu DockPanel.Dock ="Top" Grid.Row="2">
-            <MenuItem Header="Open file" Click="MenuItem_Click_OnOpenFile"/>
-            <MenuItem Header="About" Click="MenuItem_Click_OnAbout"/>
-        </Menu>
-        <FlowDocumentReader  Grid.Row="3" x:Name="flowDocumentReader" ViewingMode="TwoPage"/>
+            <ListView ItemsSource="{Binding Items}" Margin="5" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding LastName}" Margin="5" />
+                            <TextBlock Text="{Binding FirstName}" Margin="5" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Menu DockPanel.Dock ="Top" Grid.Row="2">
+                <MenuItem Header="Open file" Click="MenuItem_Click_OnOpenFile"/>
+                <MenuItem Header="About" Click="MenuItem_Click_OnAbout"/>
+            </Menu>
+            <FlowDocumentReader  Grid.Row="3" x:Name="flowDocumentReader" ViewingMode="TwoPage"/>
+        </Grid>
     </Grid>
 </Window>

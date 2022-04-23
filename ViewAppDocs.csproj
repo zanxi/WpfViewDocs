@@ -55,10 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FoldersView.xaml.cs">
+      <DependentUpon>FoldersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Drive.cs" />
+    <Compile Include="Model\Folder.cs" />
     <Compile Include="ViewModel\DataViewModel.cs" />
+    <Compile Include="ViewModel\FolderTreeItem.cs" />
+    <Compile Include="ViewModel\FolderTreeSelection.cs" />
+    <Compile Include="ViewModel\FolderTreeViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Page Include="FoldersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

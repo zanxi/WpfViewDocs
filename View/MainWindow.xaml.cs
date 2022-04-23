@@ -64,5 +64,10 @@ namespace ViewAppDocs
                 this.Title = Path.GetFileName(path);
             }
         }
+
+        private void folderTree_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
