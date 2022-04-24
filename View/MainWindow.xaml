@@ -12,7 +12,19 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <local:FoldersView x:Name="folderTree" SelectionChanged="folderTree_SelectionChanged"/>
+            <DockPanel LastChildFill="True">
+                <StatusBar DockPanel.Dock="Bottom" HorizontalContentAlignment="Stretch">
+                    <StatusBarItem Width="auto">
+                        <TextBlock x:Name="status"/>
+                    </StatusBarItem>
+                    <StatusBarItem HorizontalAlignment="Right">
+                        <TextBlock x:Name="folderCount" Text="{Binding ElementName=folderTree, Path=Selection.FolderCount}"/>
+                    </StatusBarItem>
+                </StatusBar>
+                <Grid>
+                   <local:FoldersView x:Name="folderTree" SelectionChanged="folderTree_SelectionChanged"/>
+                </Grid>
+            </DockPanel>
         </Grid>            
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

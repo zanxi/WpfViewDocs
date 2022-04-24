@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,12 +25,21 @@ namespace ViewAppDocs
     /// </summary>
     public partial class MainWindow : Window
     {
+        public BackgroundWorker worker;
         public MainWindow()
         {
             InitializeComponent();
+
+            worker = new BackgroundWorker();
+            worker.WorkerSupportsCancellation = true;
+            worker.DoWork += new DoWorkEventHandler(worker_DoWork);
+            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(worker_RunWorkerCompleted);
+
             Loaded += Window_Loaded;
             string doc = "Rendering Test.docx";
             this.ReadDocx(doc);
+
+
         }
 
         private void MenuItem_Click_OnOpenFile(object sender, RoutedEventArgs e)
@@ -65,8 +75,51 @@ namespace ViewAppDocs
             }
         }
 
+        void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if(e.Cancelled)
+            {
+                worker.RunWorkerAsync(folderTree.Selection);
+            }
+            status.Dispatcher.Invoke(new Action(delegate()
+            {
+                status.Text = string.Empty;
+            }
+            ));
+        }
+
+        void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            FolderTreeSelection selection = (FolderTreeSelection)e.Argument;
+            foreach(var folder in selection.SelectedFolders)
+            {
+                status.Dispatcher.Invoke(new Action(delegate ()
+                {
+                    status.Text = folder.FullName;
+                }
+                ));
+                
+
+                if (worker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    break;
+                }
+            }
+
+            
+        }
+
         private void folderTree_SelectionChanged(object sender, EventArgs e)
         {
+            if(worker.IsBusy)
+            {
+                worker.CancelAsync();
+            }
+            else
+            {
+                worker.RunWorkerAsync();
+            }
 
         }
     }

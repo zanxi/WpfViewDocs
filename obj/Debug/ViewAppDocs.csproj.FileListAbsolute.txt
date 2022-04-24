@@ -46,3 +46,4 @@ d:\_2022___\Src_3__\WpfViewDocs\obj\Debug\ViewAppDocs.csproj.GenerateResource.ca
 d:\_2022___\Src_3__\WpfViewDocs\obj\Debug\FoldersView.g.cs
 d:\_2022___\Src_3__\WpfViewDocs\obj\Debug\GeneratedInternalTypeHelper.g.cs
 d:\_2022___\Src_3__\WpfViewDocs\obj\Debug\ViewAppDocs.csprojAssemblyReference.cache
+D:\_2022___\Src_3__\WpfViewDocs\obj\Debug\FoldersView.baml
